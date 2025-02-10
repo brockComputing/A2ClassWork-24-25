@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace C_OOP
 {
+    #region classwork
     class Employee
     {
         private string name;
@@ -61,17 +62,59 @@ namespace C_OOP
             colourOfOveralls = theColour;
         }
     }
+    #endregion
+    public abstract class Shape
+    {
+        public string Name { get; private set; }
+
+        public Shape(string name)
+        {
+            Name = name;
+        }
+
+        public abstract double GetArea();
+        public abstract double GetPerimeter();
+
+        public override string ToString()
+        {
+            return $"{Name} - Area: {GetArea():N2}, Perimeter: {GetPerimeter():N2}";
+        }
+    }
+    public class Circle : Shape
+    {
+        public double Radius { get; private set; }
+
+        public Circle(string name, double radius) : base(name)
+        {
+            Radius = radius;
+        }
+
+        public override double GetArea()
+        {
+            return Math.PI * Radius * Radius;
+        }
+
+        public override double GetPerimeter()
+        {
+            return 2 * Math.PI * Radius;
+        }
+    }
 
     internal class Program
     {
         static void Main(string[] args)
         {
+            #region classwork
             Employee emp = new Employee("beb");
             Employee emp2 = new Employee("dave");
             Employee emp3 = new Employee();
             Employee  emp4 = new Grunt();
             
             emp.SetName("ted");
+            #endregion
+            Circle acirl = new Circle("Circle", 34.00);
+            Console.WriteLine(acirl.ToString());
+            Console.ReadLine();
         }
     }
 }
