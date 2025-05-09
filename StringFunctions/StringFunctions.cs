@@ -10,6 +10,8 @@ namespace StringFunctions
     {
         static void Main(string[] args)
         {
+            
+
             //Length	It is a string property that returns length of string.
             string s1 = "abcd";
             Console.WriteLine(s1.Length); // outputs 4
